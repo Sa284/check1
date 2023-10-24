@@ -1,0 +1,35 @@
+Algorithm Name: Dot_Product
+
+ 
+Variables:
+- v1: Array of real numbers (vector 1)
+- v2: Array of real numbers (vector 2)
+- ps: Real number (result of the dot product)
+- n: Integer (number of vector pairs)
+- i: Integer (loop index)
+
+BEGIN
+    PROCEDURE Dot_Product(v1, v2)
+        ps <- 0  // Initialize the dot product
+        FOR i FROM 1 TO LENGTH(v1)
+            ps <- ps + (v1[i] * v2[i])
+        END FOR
+        RETURN ps
+
+    PROCEDURE DetermineOrthogonalPairs(n)
+        FOR i FROM 1 TO n
+            READ v1  // Read vector 1
+            READ v2  // Read vector 2
+            ps <- Dot_Product(v1, v2)  // Call the Dot_Product function
+            IF ps = 0 THEN
+                PRINT "The vectors are orthogonal."
+            ELSE
+                PRINT "The vectors are not orthogonal."
+            END IF
+        END FOR
+
+    // Ask the user for the number of vector pairs
+    READ n
+    DetermineOrthogonalPairs(n)
+
+END
